@@ -301,9 +301,47 @@
   "blocks": {
     "@comment": "Translation for blockly'blocks defined for Gnikrap",
 
+
+
+    "ini": {
+      "tooltip": "最初のおまじない",
+      "text_ini": "おまじない"
+    },
+
+    "fd": {
+      "tooltip": "まっすぐ進む",
+      "text_fd_a": "まっすぐ",
+      "text_fd_b": "歩すすむ"
+    },
+
+    "rt": {
+      "tooltip": "右に向きを変える",
+      "text_rt_a": "右に",
+      "text_rt_b": "度向きを変える"
+    },
+
+    "cubett-fd": {
+      "tooltip": "まっすぐ進む",
+      "text_cubett-fd": "まっすぐ進む"
+    },
+
+    "cubett-rt": {
+      "tooltip": "右に向きを変える",
+      "text_cubett-rt": "右に向きを変える"
+    },
+
+
+    "cubett-lt": {
+      "tooltip": "左に向きを変える",
+      "text_cubett-lt": "左に向きを変える"
+    },
+
+
     "categories": {
+      "cubett": "キュベット",
+      "level-1": "レベル1",
       "logic": "Logic",
-      "loops": "Loops",
+      "loops": "レベル2",
       "math": "Math",
       "text": "Text",
       "lists": "Lists",
@@ -531,6 +569,7 @@
       "text_set_speed_of_motor": "set speed of motor",
       "text_to": "to"
     },
+
 
     "gnikrap_ev3_motor_getspeed": {
       "tooltip": "Return the speed of the motor.",
