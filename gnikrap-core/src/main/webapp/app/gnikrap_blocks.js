@@ -354,118 +354,140 @@ function GnikrapBlocks() {
     // Loop
     xml.push('<category id="catLoops"  name="' + i18n.t("blocks.categories.loops") + '" colour="' + self.BLOCKLY_LOOP_COLOUR + '">');
     xml.push([
-          {type: "controls_whileUntil",
-            xmlContent: '<value name="BOOL"><block type="gnikrap_ev3_isok"></block></value>'},
-          {type: "controls_whileUntil"},
+          // {type: "controls_whileUntil",
+          //   xmlContent: '<value name="BOOL"><block type="gnikrap_ev3_isok"></block></value>'},
+          // {type: "controls_whileUntil"},
           {type: "controls_repeat_ext",
             xmlContent: '<value name="TIMES"><block type="math_number"><field name="NUM">10</field></block></value>'},
-          {type: "controls_flow_statements"},
-          {type: "controls_forEach"},
-          {type: "controls_for"}
+          // {type: "controls_flow_statements"},
+          // {type: "controls_forEach"},
+          // {type: "controls_for"}
         ].map(self.__blockToXML).join(''));
     xml.push('</category>');
 
-    // Logic
-    xml.push('<category id="catLogic" name="' + i18n.t("blocks.categories.logic") + '" colour="' + self.BLOCKLY_LOGIC_COLOUR + '">');
-    xml.push([
-          {type: "controls_if"},
-          {type: "controls_if",
-            xmlContent: '<mutation else="1"></mutation>' },
-          {type: "logic_compare"},
-          {type: "logic_operation"},
-          {type: "logic_negate"},
-          {type: "logic_boolean"},
-          {type: "logic_ternary"},
-          {type: "logic_null"}
-        ].map(self.__blockToXML).join(''));
-    xml.push('</category>');
+    // // Logic
+    // xml.push('<category id="catLogic" name="' + i18n.t("blocks.categories.logic") + '" colour="' + self.BLOCKLY_LOGIC_COLOUR + '">');
+    // xml.push([
+    //       {type: "controls_if"},
+    //       {type: "controls_if",
+    //         xmlContent: '<mutation else="1"></mutation>' },
+    //       {type: "logic_compare"},
+    //       {type: "logic_operation"},
+    //       {type: "logic_negate"},
+    //       {type: "logic_boolean"},
+    //       {type: "logic_ternary"},
+    //       {type: "logic_null"}
+    //     ].map(self.__blockToXML).join(''));
+    // xml.push('</category>');
 
-    // Math
-    xml.push('<category id="catMath" name="' + i18n.t("blocks.categories.math") + '" colour="' + self.BLOCKLY_MATH_COLOUR + '">');
-    xml.push([
-          {type: "math_number"},
-          {type: "math_arithmetic"},
-          {type: "math_number_property"},
-          {type: "math_constrain",
-            xmlContent: '<value name="LOW"><block type="math_number"><field name="NUM">1</field></block></value>' +
-              '<value name="HIGH"><block type="math_number"><field name="NUM">100</field></block></value>'},
-          {type: "math_random_int",
-            xmlContent: '<value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>' +
-              '<value name="TO"><block type="math_number"><field name="NUM">100</field></block></value>'},
-          {type: "math_modulo"},
-          {type: "math_single"},
-          {type: "math_round"},
-          {type: "math_on_list"},
-          {type: "math_trig"},
-          {type: "math_constant"},
-          {type: "math_random_float"},
-          {type: "math_change"}
-        ].map(self.__blockToXML).join(''));
-    xml.push('</category>');
+    // // Math
+    // xml.push('<category id="catMath" name="' + i18n.t("blocks.categories.math") + '" colour="' + self.BLOCKLY_MATH_COLOUR + '">');
+    // xml.push([
+    //       {type: "math_number"},
+    //       {type: "math_arithmetic"},
+    //       {type: "math_number_property"},
+    //       {type: "math_constrain",
+    //         xmlContent: '<value name="LOW"><block type="math_number"><field name="NUM">1</field></block></value>' +
+    //           '<value name="HIGH"><block type="math_number"><field name="NUM">100</field></block></value>'},
+    //       {type: "math_random_int",
+    //         xmlContent: '<value name="FROM"><block type="math_number"><field name="NUM">1</field></block></value>' +
+    //           '<value name="TO"><block type="math_number"><field name="NUM">100</field></block></value>'},
+    //       {type: "math_modulo"},
+    //       {type: "math_single"},
+    //       {type: "math_round"},
+    //       {type: "math_on_list"},
+    //       {type: "math_trig"},
+    //       {type: "math_constant"},
+    //       {type: "math_random_float"},
+    //       {type: "math_change"}
+    //     ].map(self.__blockToXML).join(''));
+    // xml.push('</category>');
 
+    //Function
+    xml.push('<category name="' + i18n.t("blocks.categories.functions") + '" custom="PROCEDURE" colour="' + self.BLOCKLY_PROCEDURE_COLOUR + '"></category>');
+
+    //Variables
+    xml.push('<category name="' + i18n.t("blocks.categories.variables") + '" custom="VARIABLE" colour="' + self.BLOCKLY_VARIABLE_COLOUR + '"></category>');
     return xml.join('');
   };
 
   self.__generateGnikrapCategories = function() {
     var xml = [];
 
-    xml.push('<category name="' + i18n.t("blocks.categories.ev3_brick") + '" colour="' + self.EV3_BRICK_COLOUR + '">');
+    // //EV3_Brick
+    xml.push('<category name="' + i18n.t("blocks.categories.cubett") + '" colour="' + self.EV3_BRICK_COLOUR + '">');
     xml.push([
-          {type: "controls_whileUntil",
-            xmlContent: '<value name="BOOL"><block type="gnikrap_ev3_isok"></block></value>'},
-          {type: "gnikrap_ev3_notify"},
-          {type: "gnikrap_ev3_sleep",
-            xmlContent: '<value name="TIME"><block type="math_number"><field name="NUM">100</field></block></value>' },
-          {type: "gnikrap_ev3_wait_until"},
-          {type: "gnikrap_ev3_isok"},
-          {type: "gnikrap_ev3_stop"},
-          {type: "gnikrap_ev3_led"},
-          {type: "gnikrap_ev3_sound_setvolume",
-            xmlContent: '<value name="VOL"><block type="math_number"><field name="NUM">70</field></block></value>' },
-          {type: "gnikrap_ev3_sound_beep" },
-          {type: "gnikrap_ev3_sound_playnote",
-            xmlContent: '<value name="NOTE"><block type="text"><field name="TEXT">Do</field></block></value>' +
-                        '<value name="DURATION"><block type="math_number"><field name="NUM">100</field></block></value>' },
-          {type: "gnikrap_ev3_keyboard_wait"},
-          {type: "gnikrap_ev3_keyboard_ispressed"}
+            {type: "ini"},
+            {type: "cubett-fd"},
+            {type: "cubett-rt"},
+            {type: "cubett-lt"}
+
+    //       {type: "controls_whileUntil",
+    //         xmlContent: '<value name="BOOL"><block type="gnikrap_ev3_isok"></block></value>'},
+    //       {type: "gnikrap_ev3_notify"},
+    //       {type: "gnikrap_ev3_sleep",
+    //         xmlContent: '<value name="TIME"><block type="math_number"><field name="NUM">100</field></block></value>' },
+    //       {type: "gnikrap_ev3_wait_until"},
+    //       {type: "gnikrap_ev3_isok"},
+    //       {type: "gnikrap_ev3_stop"},
+    //       {type: "gnikrap_ev3_led"},
+    //       {type: "gnikrap_ev3_sound_setvolume",
+    //         xmlContent: '<value name="VOL"><block type="math_number"><field name="NUM">70</field></block></value>' },
+    //       {type: "gnikrap_ev3_sound_beep" },
+    //       {type: "gnikrap_ev3_sound_playnote",
+    //         xmlContent: '<value name="NOTE"><block type="text"><field name="TEXT">Do</field></block></value>' +
+    //                     '<value name="DURATION"><block type="math_number"><field name="NUM">100</field></block></value>' },
+    //       {type: "gnikrap_ev3_keyboard_wait"},
+    //       {type: "gnikrap_ev3_keyboard_ispressed"}
         ].map(self.__blockToXML).join(''));
     xml.push('</category>');
 
-    xml.push('<category name="' + i18n.t("blocks.categories.motors") + '" colour="' + self.EV3_MOTOR_COLOUR + '">');
+    //Motors
+    xml.push('<category name="' + i18n.t("blocks.categories.level-1") + '" colour="' + self.EV3_MOTOR_COLOUR + '">');
     xml.push([
-          {type: "gnikrap_ev3_motor_settype"},
-          {type: "gnikrap_ev3_motor_move"},
-          {type: "gnikrap_ev3_motor_rotate",
-            xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">180</field></block></value>' },
-          {type: "gnikrap_ev3_motor_setspeed",
-            xmlContent: '<value name="SPEED"><block type="math_number"><field name="NUM">75</field></block></value>'},
-          {type: "gnikrap_ev3_motor_getspeed"},
-          {type: "gnikrap_ev3_motor_ismoving"},
-          {type: "gnikrap_ev3_motor_resettacho"},
-          {type: "gnikrap_ev3_motor_gettacho"}
+          // {type: "gnikrap_ev3_motor_settype"},
+          // {type: "gnikrap_ev3_motor_move"},
+          {type: "ini"},
+          {type: "fd",
+              xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">10</field></block></value>' },
+          {type: "rt",
+              xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">90</field></block></value>' }
+          // {type: "gnikrap_ev3_motor_rotate",
+          //   xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">180</field></block></value>' },
+          // {type: "gnikrap_ev3_motor_setspeed",
+          //   xmlContent: '<value name="SPEED"><block type="math_number"><field name="NUM">75</field></block></value>'},
+          // {type: "gnikrap_ev3_motor_getspeed"},
+          // {type: "gnikrap_ev3_motor_ismoving"},
+          // {type: "gnikrap_ev3_motor_resettacho"},
+          // {type: "gnikrap_ev3_motor_gettacho"}
         ].map(self.__blockToXML).join(''));
     xml.push('</category>');
 
-    xml.push('<category name="' + i18n.t("blocks.categories.color_sensor") + '" colour="' + self.EV3_COLOR_SENSOR_COLOUR + '">');
-    xml.push([
-          {type: "gnikrap_ev3_colorsensor_reflected"},
-          {type: "gnikrap_ev3_colorsensor_ambient"},
-          {type: "gnikrap_ev3_colorsensor_getcolor"},
-          {type: "gnikrap_ev3_colorsensor_iscolor"}
-        ].map(self.__blockToXML).join(''));
-    xml.push('</category>');
-    xml.push('<category name="' + i18n.t("blocks.categories.ir_sensor") + '" colour="' + self.EV3_IR_SENSOR_COLOUR + '">');
-    xml.push([
-          {type: "gnikrap_ev3_irsensor_setchannel"},
-          {type: "gnikrap_ev3_irsensor_getdistance"},
-          {type: "gnikrap_ev3_irsensor_getremotecommand"}
-        ].map(self.__blockToXML).join(''));
-    xml.push('</category>');
-    xml.push('<category name="' + i18n.t("blocks.categories.touch_sensor") + '" colour="' + self.EV3_TOUCH_SENSOR_COLOUR + '">');
-    xml.push([
-          {type: "gnikrap_ev3_touchsensor_pushed"}
-        ].map(self.__blockToXML).join(''));
-    xml.push('</category>');
+    // //Color sensor
+    // xml.push('<category name="' + i18n.t("blocks.categories.color_sensor") + '" colour="' + self.EV3_COLOR_SENSOR_COLOUR + '">');
+    // xml.push([
+    //       {type: "gnikrap_ev3_colorsensor_reflected"},
+    //       {type: "gnikrap_ev3_colorsensor_ambient"},
+    //       {type: "gnikrap_ev3_colorsensor_getcolor"},
+    //       {type: "gnikrap_ev3_colorsensor_iscolor"}
+    //     ].map(self.__blockToXML).join(''));
+    // xml.push('</category>');
+
+    // //IR sensor
+    // xml.push('<category name="' + i18n.t("blocks.categories.ir_sensor") + '" colour="' + self.EV3_IR_SENSOR_COLOUR + '">');
+    // xml.push([
+    //       {type: "gnikrap_ev3_irsensor_setchannel"},
+    //       {type: "gnikrap_ev3_irsensor_getdistance"},
+    //       {type: "gnikrap_ev3_irsensor_getremotecommand"}
+    //     ].map(self.__blockToXML).join(''));
+    // xml.push('</category>');
+
+    // //Touch sensor
+    // xml.push('<category name="' + i18n.t("blocks.categories.touch_sensor") + '" colour="' + self.EV3_TOUCH_SENSOR_COLOUR + '">');
+    // xml.push([
+    //       {type: "gnikrap_ev3_touchsensor_pushed"}
+    //     ].map(self.__blockToXML).join(''));
+    // xml.push('</category>');
 
     /*
     // Currently not happy of the Blockly' integration of xSensor => Disable it
@@ -483,57 +505,57 @@ function GnikrapBlocks() {
         ].map(self.__blockToXML).join(''));
     xml.push('</category>');
     */
+
     return xml.join('');
   };
 
   self.__generateMagicCategories = function() {
     var xml = [];
-    // Text
-    xml.push('<category id="catText" name="' + i18n.t("blocks.categories.text") + '" colour="' + self.BLOCKLY_TEXT_COLOUR + '">');
-    xml.push([
-          {type: "text"},
-          {type: "text_join"},
-          {type: "text_length"},
-          {type: "text_isEmpty"},
-          {type: "text_charAt",
-            xmlContent: '<value name="VALUE"><block type="variables_get"><field name="VAR" class="textVar">text</field></block></value>' +
-              '<value name="AT"><block type="math_number"><field name="NUM">0</field></block></value>'},
-          {type: "text_append"},
-          {type: "text_indexOf"},
-          {type: "text_getSubstring"},
-          {type: "text_changeCase"},
-          {type: "text_trim"}
-          // ev3_notify to print text with Gnikrap
-          // {type: "text_print"},
-          // {type: "text_prompt_ext"}              
-        ].map(self.__blockToXML).join(''));
-    xml.push('</category>');
+    // // Text
+    // xml.push('<category id="catText" name="' + i18n.t("blocks.categories.text") + '" colour="' + self.BLOCKLY_TEXT_COLOUR + '">');
+    // xml.push([
+    //       {type: "text"},
+    //       {type: "text_join"},
+    //       {type: "text_length"},
+    //       {type: "text_isEmpty"},
+    //       {type: "text_charAt",
+    //         xmlContent: '<value name="VALUE"><block type="variables_get"><field name="VAR" class="textVar">text</field></block></value>' +
+    //           '<value name="AT"><block type="math_number"><field name="NUM">0</field></block></value>'},
+    //       {type: "text_append"},
+    //       {type: "text_indexOf"},
+    //       {type: "text_getSubstring"},
+    //       {type: "text_changeCase"},
+    //       {type: "text_trim"}
+    //       // ev3_notify to print text with Gnikrap
+    //       // {type: "text_print"},
+    //       // {type: "text_prompt_ext"}              
+    //     ].map(self.__blockToXML).join(''));
+    // xml.push('</category>');
 
-    // Lists
-    xml.push('<category id="catLists" name="' + i18n.t("blocks.categories.lists") + '" colour="' + self.BLOCKLY_LIST_COLOUR + '">');
-    xml.push([
-          {type: "lists_create_empty"},
-          {type: "lists_create_with"},
-          {type: "lists_length"},
-          {type: "lists_isEmpty",
-            xmlContent: '<value name="VALUE"><block type="variables_get"><field name="VAR" class="listVar">list</field></block></value>'},
-          {type: "lists_indexOf",
-            xmlContent: '<value name="VALUE"><block type="variables_get"><field name="VAR" class="listVar">list</field></block></value>'},
-          {type: "lists_getIndex",
-            xmlContent: '<value name="VALUE"><block type="variables_get"><field name="VAR" class="listVar">list</field></block></value>'},
-          {type: "lists_setIndex",
-            xmlContent: '<value name="LIST"><block type="variables_get"><field name="VAR" class="listVar">list</field></block></value>'},
-          {type: "lists_getSublist",
-            xmlContent: '<value name="LIST"><block type="variables_get"><field name="VAR" class="listVar">list</field></block></value>'},
-          {type: "lists_repeat",
-            xmlContent: '<value name="NUM"><block type="math_number"><field name="NUM">10</field></block></value>'},
-          {type: "lists_split"}
-        ].map(self.__blockToXML).join(''));
-    xml.push('</category>');
+    // // Lists
+    // xml.push('<category id="catLists" name="' + i18n.t("blocks.categories.lists") + '" colour="' + self.BLOCKLY_LIST_COLOUR + '">');
+    // xml.push([
+    //       {type: "lists_create_empty"},
+    //       {type: "lists_create_with"},
+    //       {type: "lists_length"},
+    //       {type: "lists_isEmpty",
+    //         xmlContent: '<value name="VALUE"><block type="variables_get"><field name="VAR" class="listVar">list</field></block></value>'},
+    //       {type: "lists_indexOf",
+    //         xmlContent: '<value name="VALUE"><block type="variables_get"><field name="VAR" class="listVar">list</field></block></value>'},
+    //       {type: "lists_getIndex",
+    //         xmlContent: '<value name="VALUE"><block type="variables_get"><field name="VAR" class="listVar">list</field></block></value>'},
+    //       {type: "lists_setIndex",
+    //         xmlContent: '<value name="LIST"><block type="variables_get"><field name="VAR" class="listVar">list</field></block></value>'},
+    //       {type: "lists_getSublist",
+    //         xmlContent: '<value name="LIST"><block type="variables_get"><field name="VAR" class="listVar">list</field></block></value>'},
+    //       {type: "lists_repeat",
+    //         xmlContent: '<value name="NUM"><block type="math_number"><field name="NUM">10</field></block></value>'},
+    //       {type: "lists_split"}
+    //     ].map(self.__blockToXML).join(''));
+    // xml.push('</category>');
     
-    xml.push('<category name="' + i18n.t("blocks.categories.functions") + '" custom="PROCEDURE" colour="' + self.BLOCKLY_PROCEDURE_COLOUR + '"></category>');
-    xml.push('<category name="' + i18n.t("blocks.categories.variables") + '" custom="VARIABLE" colour="' + self.BLOCKLY_VARIABLE_COLOUR + '"></category>');
-    return '<category name="' + i18n.t("blocks.categories.advanced") + '">' + xml.join('') + '</category>';
+    //Advanced
+    // return '<category name="' + i18n.t("blocks.categories.advanced") + '">' + xml.join('') + '</category>';
   };
 
   self.__generateXmlToolboxTree = function() {
@@ -1118,6 +1140,173 @@ function GnikrapBlocks() {
           (angle_unit == "TURN" ? value + '*360' : value) +
           ', ' + (action == "ROTATE_NO_WAIT" ? "true" : "false") + ');\n';
     };
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////// MyBlocks
+
+//--- init ---//
+    Blockly.Blocks['ini'] = {
+      init: function() {
+        initBlockStackable(this, "blocks.ini", self.EV3_MOTOR_COLOUR);
+        this.appendDummyInput()
+            .appendField(i18n.t("blocks.ini.text_ini"));
+            // .appendField(new Blockly.FieldDropdown(
+            //     MOTOR_TYPE.map(createListForFieldDropdownMapper("blocks.gnikrap_ev3_motor_settype.list_motor_type_connected_on"))), "TYPE")
+            // .appendField(new Blockly.FieldDropdown([["A", "A"], ["B", "B"], ["C", "C"], ["D", "D"]]), "PORT");
+
+        //不要？（170929）
+        // this.getEV3PortData = function() {
+        //   return { port: this.getFieldValue('PORT'), type: this.getFieldValue('TYPE'), action: 'setMotorType' };
+        // };
+      }
+    };
+    Blockly.JavaScript['ini'] = function(block) {
+      // var type = block.getFieldValue('TYPE');
+      // var port = block.getFieldValue('PORT');
+
+      // return '"@setMotorType(' + port + ', ' + getCodeForList(MOTOR_TYPE, type) + ')";\n';
+      //  + '"@setMotorType(' + port +  ', ' + getCodeForList(MOTOR_TYPE, type) + ')";\n\n';
+      // return '"@setMotorType(A, getLargeMotor)"\n';
+      return 'var motor_A = ev3.getBrick().getLargeMotor("A");\n'
+        + 'var motor_D = ev3.getBrick().getLargeMotor("D");\n\n';
+            };
+//--- End init ---//
+
+//--- fd ---//
+    Blockly.Blocks['fd'] = {
+      init: function() {
+        initBlockStackable(this, "blocks.fd", self.EV3_MOTOR_COLOUR);
+        this.appendDummyInput()
+            // .appendField(new Blockly.FieldDropdown(
+            //     hoge_MOTOR_ACTION2.map(createListForFieldDropdownMapper("blocks.gnikrap_ev3_motor_rotate.list_motor_actions"))), "ACTION")
+             // .appendField(new Blockly.FieldDropdown([["A", "A"], ["B", "B"], ["C", "C"], ["D", "D"]]), "PORT");
+             .appendField(i18n.t("blocks.fd.text_fd_a"));
+        this.appendValueInput("VALUE")
+            .setCheck("Number");
+        this.appendDummyInput()
+            .appendField(i18n.t("blocks.fd.text_fd_b"));
+            // .appendField(i18n.t("blocks.gnikrap_ev3_motor_rotate.text_for"));
+        // this.appendDummyInput()
+        //     .appendField(i18n.t("mm"))
+            // .appendField(new Blockly.FieldDropdown(hoge_ANGLE_UNIT.map(createListForFieldDropdownMapper("blocks.gnikrap_ev3_motor_rotate.list_angle_unit"))), "ANGLE_UNIT");
+        this.setInputsInline(true);
+
+        this.getEV3PortData = function() {
+          return { port: this.getFieldValue('PORT'), type: undefined, action: 'useMotor' };
+        };
+      }
+    };
+    Blockly.JavaScript['fd'] = function(block) {
+      var value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC)
+                  || 0; // Default value if no args
+      // var angle_unit = block.getFieldValue('ANGLE_UNIT');
+      // var action = block.getFieldValue('ACTION');
+      // var port = block.getFieldValue('PORT');
+
+/* 'var motor_D = ev3.getBrick().getLargeMotor("D");\n'
+      + 'var motor_A = ev3.getBrick().getLargeMotor("A");\n'
+      + */
+      return 'motor_A.rotate(' + value * 31 + ', true);\n'
+      + 'motor_D.rotate(' + value * 31 + ', false);\n\n'; //渡辺氏調べ
+    };
+//--- End fd ---//
+
+//--- rt ---//
+    Blockly.Blocks['rt'] = {
+      init: function() {
+        initBlockStackable(this, "blocks.rt", self.EV3_MOTOR_COLOUR);
+        this.appendDummyInput()
+            // .appendField(new Blockly.FieldDropdown(
+            //     hoge_MOTOR_ACTION2.map(createListForFieldDropdownMapper("blocks.gnikrap_ev3_motor_rotate.list_motor_actions"))), "ACTION")
+             // .appendField(new Blockly.FieldDropdown([["A", "A"], ["B", "B"], ["C", "C"], ["D", "D"]]), "PORT");
+             .appendField(i18n.t("blocks.rt.text_rt_a"));
+        this.appendValueInput("VALUE")
+            .setCheck("Number");
+            // .appendField(i18n.t("blocks.gnikrap_ev3_motor_rotate.text_for"));
+        this.appendDummyInput()
+            .appendField(i18n.t("blocks.rt.text_rt_b")); //これないとブロックが不細工になる
+            // .appendField(new Blockly.FieldDropdown(hoge_ANGLE_UNIT.map(createListForFieldDropdownMapper("blocks.gnikrap_ev3_motor_rotate.list_angle_unit"))), "ANGLE_UNIT");
+        // this.setInputsInline(true);
+
+        this.getEV3PortData = function() {
+          return { port: this.getFieldValue('PORT'), type: undefined, action: 'useMotor' };
+        };
+      }
+    };
+    Blockly.JavaScript['rt'] = function(block) {
+      var value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC)
+                  || 0; // Default value if no args
+      // var angle_unit = block.getFieldValue('ANGLE_UNIT');
+      // var action = block.getFieldValue('ACTION');
+      // var port = block.getFieldValue('PORT');
+
+/* 'var motor_D = ev3.getBrick().getLargeMotor("D");\n'
+      + 'var motor_A = ev3.getBrick().getLargeMotor("A");\n'
+      + */
+      return 'motor_A.rotate(' + value * -46 + ', true);\n'
+      + 'motor_D.rotate(' + value * 46 + ', false);\n\n'; //渡辺氏調べ
+    };
+//--- End rt ---//
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+////// cubett-Mode
+//--- cubett-fd ---//
+    Blockly.Blocks['cubett-fd'] = {
+      init: function() {
+        initBlockStackable(this, "blocks.cubett-fd", self.EV3_BRICK_COLOUR);
+        this.appendDummyInput()
+            .appendField(i18n.t("blocks.cubett-fd.text_cubett-fd"));
+
+        this.getEV3PortData = function() {
+          return { port: this.getFieldValue('PORT'), type: undefined, action: 'useMotor' };
+        };
+      }
+    };
+    Blockly.JavaScript['cubett-fd'] = function(block) {
+      return 'motor_A.rotate(' + 150 * 31 + ', true);\n'
+      + 'motor_D.rotate(' + 150 * 31 + ', false);\n\n'; //渡辺氏調べ
+    };
+//--- End cubett-fd ---//
+
+//--- cubett-rt ---//
+    Blockly.Blocks['cubett-rt'] = {
+      init: function() {
+        initBlockStackable(this, "blocks.cubett-rt", self.EV3_BRICK_COLOUR);
+        this.appendDummyInput()
+            .appendField(i18n.t("blocks.cubett-rt.text_cubett-rt"));
+ 
+        this.getEV3PortData = function() {
+          return { port: this.getFieldValue('PORT'), type: undefined, action: 'useMotor' };
+        };
+      }
+    };
+    Blockly.JavaScript['cubett-rt'] = function(block) {
+      return 'motor_A.rotate(' + 90 * -46 + ', true);\n'
+      + 'motor_D.rotate(' + 90 * 46 + ', false);\n\n'; //渡辺氏調べ
+    };
+//--- End cube-rt ---//
+
+//--- cubett-lt ---//
+    Blockly.Blocks['cubett-lt'] = {
+      init: function() {
+        initBlockStackable(this, "blocks.cubett-lt", self.EV3_BRICK_COLOUR);
+        this.appendDummyInput()
+            .appendField(i18n.t("blocks.cubett-lt.text_cubett-lt"));
+
+        this.getEV3PortData = function() {
+          return { port: this.getFieldValue('PORT'), type: undefined, action: 'useMotor' };
+        };
+      }
+    };
+    Blockly.JavaScript['cubett-lt'] = function(block) {
+      return 'motor_A.rotate(' + 90 * 46 + ', true);\n'
+      + 'motor_D.rotate(' + 90 * -46 + ', false);\n\n'; //渡辺氏調べ
+    };
+//--- End cube-lt ---//
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////
 
     // setSpeed(port, speed): void
     var SPEED_UNIT = [["DEGREE_PER_S"], ["TURN_PER_S"], ["PERCENT"]]; // No need javascript code
