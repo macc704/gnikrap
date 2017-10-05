@@ -2,8 +2,8 @@
   "@comment": "English translation (also used as default translation)",
 
   "navigationBar": {
-    "run": "Run",
-    "stop": "Stop",
+    "run": "じっこう",
+    "stop": "とめる",
     "gnikrap": {
       "about": "About...",
       "fullScreen": "Toggle full screen",
@@ -302,47 +302,46 @@
     "@comment": "Translation for blockly'blocks defined for Gnikrap",
 
 
-
     "ini": {
       "tooltip": "最初のおまじない",
       "text_ini": "おまじない"
     },
 
     "fd": {
-      "tooltip": "まっすぐ進む",
-      "text_fd_a": "まっすぐ",
-      "text_fd_b": "歩すすむ"
+      "tooltip": "まっすぐ進める",
+      "text_object": "カメを",
+      "text_fd": "歩すすめる"
     },
 
     "rt": {
       "tooltip": "右に向きを変える",
-      "text_rt_a": "右に",
-      "text_rt_b": "度向きを変える"
+      "text_object": "カメを",
+      "text_rt": "度回す"
     },
 
     "cubett-fd": {
-      "tooltip": "まっすぐ進む",
-      "text_cubett-fd": "まっすぐ進む"
+      "tooltip": "まっすぐすすめる",
+      "text_cubett-fd": "まっすぐすすめる"
     },
 
     "cubett-rt": {
       "tooltip": "右に向きを変える",
-      "text_cubett-rt": "右に向きを変える"
+      "text_cubett-rt": "右にまわす"
     },
 
 
     "cubett-lt": {
       "tooltip": "左に向きを変える",
-      "text_cubett-lt": "左に向きを変える"
+      "text_cubett-lt": "左にまわす"
     },
 
 
     "categories": {
       "cubett": "キュベット",
       "level-1": "レベル1",
-      "logic": "Logic",
-      "loops": "レベル2",
-      "math": "Math",
+      "level-4": "レベル4",
+      "level-2": "レベル2",
+      "level-3": "レベル3 ",
       "text": "Text",
       "lists": "Lists",
 

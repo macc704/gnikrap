@@ -24,11 +24,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!-- Full Screen View from iOS HOME -->
     <meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+	  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- Other meta -->
     <meta name="description" content="Gnikrap application">
     <meta name="author" content="Jean BENECH">
     <link rel="shortcut icon" href="images/gnikrap.png">
+    <link rel="apple-touch-icon" href="images/gnikrap.png">
 
     <title>Gnikrap</title>
 
@@ -158,7 +159,7 @@
                   <span class="glyphicon glyphicon-eye-open"></span> <span class="i18n" data-i18n="scriptEditorTab.viewJavaScript">VIEW_JAVASCRIPT</span></button>
               </nav>
               <div id="aceEditor" style="height: 350px; display: none">// Loading script...</div>
-              <div id="blocklyEditor" style="height: 350px; display: none"></div>
+              <div id="blocklyEditor" style="height: 350px; display: none;"></div>
             </div>
             
             <!-- Keyboard sensor tab -->
@@ -366,8 +367,8 @@
 
         <!-- Event notification part -->
         <div id="messageLog" class="col-sm-0"> <!-- ここ消すとwork areaも出なくなっちゃう -->
-          <!-- <nav class="nav" style="margin-bottom: 5px"> <!-- Button bar -->
-            <!-- <button class="btn btn-default btn-sm" data-bind="click: onResetMessages">
+           <!-- <nav class="nav" style="margin-bottom: 5px"> --> <!-- Button bar -->
+             <!-- <button class="btn btn-default btn-sm" data-bind="click: onResetMessages">
               <span class="glyphicon glyphicon-file"></span> <span class="i18n" data-i18n="messageLog.clear">CLEAR</span></button>
             <button class="btn btn-default btn-sm" data-bind="css: {active: keepOnlyLastMessages}, click: onKeepOnlyLastMessages">
               <span class="i18n" data-i18n="messageLog.keepLast">KEEP_LAST</span></button>
@@ -376,7 +377,7 @@
             <li class="list-group-item" data-bind="css: cssClazz">
               <small data-bind="text: time">00:00:00</small> - <span data-bind="text: text">Message</span><span class="badge" data-bind="visible: count > 1, text: count">0</span>
             </li>
-          </ul> -->
+          </ul>  -->
         </div>
       </div>
     </div>
