@@ -356,8 +356,7 @@ function GnikrapBlocks() {
     xml.push([
           // {type: "gnikrap_ev3_motor_settype"},
           // {type: "gnikrap_ev3_motor_move"},
-          {type: "ini"},
-          {type: "fd",
+                    {type: "fd",
               xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">5</field></block></value>' },
           {type: "rt",
               xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">90</field></block></value>' },
@@ -378,7 +377,6 @@ function GnikrapBlocks() {
           // {type: "controls_whileUntil",
           //   xmlContent: '<value name="BOOL"><block type="gnikrap_ev3_isok"></block></value>'},
           // {type: "controls_whileUntil"},
-          {type: "ini"},
           {type: "fd",
               xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">5</field></block></value>' },
           {type: "rt",
@@ -394,16 +392,17 @@ function GnikrapBlocks() {
     // Math
     xml.push('<category id="catMath" name="' + i18n.t("blocks.categories.level-3") + '" colour="' + self.BLOCKLY_MATH_COLOUR + '">');
     xml.push([
-          {type: "ini"},
           {type: "fd",
               xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">5</field></block></value>' },
           {type: "rt",
               xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">90</field></block></value>' },
           {type: "controls_repeat_ext",
             xmlContent: '<value name="TIMES"><block type="math_number"><field name="NUM">4</field></block></value>'},
-          {type: "variables_set"},
+          {type: "variables_set",
+            xmlContent:'<value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>'},
           {type: "variables_get"},
-          {type: "math_arithmetic"}
+          {type: "math_arithmetic",
+            xmlContent: '<value name="A"><block type="math_number"><field name="NUM">0</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value>'}
           // {type: "controls_if",
           //   xmlContent: '<mutation else="1"></mutation>' },
         ].map(self.__blockToXML).join(''));
@@ -412,19 +411,21 @@ function GnikrapBlocks() {
     // // Logic
     xml.push('<category id="catLogic" name="' + i18n.t("blocks.categories.level-4") + '" colour="' + self.BLOCKLY_LOGIC_COLOUR + '">');
     xml.push([
-          {type: "ini"},
           {type: "fd",
               xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">5</field></block></value>' },
           {type: "rt",
               xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">90</field></block></value>' },
           {type: "controls_repeat_ext",
             xmlContent: '<value name="TIMES"><block type="math_number"><field name="NUM">4</field></block></value>'},
-          {type: "variables_set"},
+          {type: "variables_set",
+            xmlContent:'<value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>'},
           {type: "variables_get"},
-          {type: "math_arithmetic"},
-          {type: "logic_compare"},
+          {type: "math_arithmetic",
+            xmlContent: '<value name="A"><block type="math_number"><field name="NUM">0</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value>'},
+          {type: "logic_compare",
+            xmlContent: '<value name="A"><block type="math_number"><field name="NUM">0</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value>'},
           {type: "controls_if",
-            xmlContent: '<value name="IF0"><block type="logic_compare"><field name="OP">=</field><value name="A"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="B"><shadow type="math_number"><field name="NUM">0</field></shadow></value></block></value>'}
+            xmlContent: '<value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_number"><field name="NUM">0</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value>'}
           // {type: "controls_if",
           //   xmlContent: '<mutation else="1"></mutation>' },
           // {type: "logic_negate"},
@@ -435,23 +436,8 @@ function GnikrapBlocks() {
     xml.push('</category>');
 
     //Function
-    xml.push('<category name="' + i18n.t("blocks.categories.functions") + '" custom="PROCEDURE" colour="' + self.BLOCKLY_PROCEDURE_COLOUR + '">');//</category>');
-    xml.push([
-          {type: "ini"},
-          {type: "fd",
-              xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">5</field></block></value>' },
-          {type: "rt",
-              xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">90</field></block></value>' },
-          {type: "controls_repeat_ext",
-            xmlContent: '<value name="TIMES"><block type="math_number"><field name="NUM">4</field></block></value>'},
-          {type: "variables_set"},
-          {type: "variables_get"},
-          {type: "math_arithmetic"},
-          {type: "logic_compare"},
-          {type: "controls_if",
-            xmlContent: '<value name="IF0"><block type="logic_compare"><field name="OP">=</field><value name="A"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="B"><shadow type="math_number"><field name="NUM">0</field></shadow></value></block></value>'}
-          ].map(self.__blockToXML).join(''));
-    xml.push('</category>');
+    xml.push('<category name="' + i18n.t("blocks.categories.functions") + '" custom="PROCEDURE" colour="' + self.BLOCKLY_PROCEDURE_COLOUR + '"></category>');
+
     // //Variables
     // xml.push('<category name="' + i18n.t("blocks.categories.variables") + '" custom="VARIABLE" colour="' + self.BLOCKLY_VARIABLE_COLOUR + '"></category>');
     return xml.join('');
@@ -1172,34 +1158,34 @@ function GnikrapBlocks() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////// MyBlocks
 
-//--- init ---//
-    Blockly.Blocks['ini'] = {
-      init: function() {
-        initBlockStackable(this, "blocks.ini", self.EV3_MOTOR_COLOUR);
-        this.setPreviousStatement(false);
-        this.appendDummyInput()
-            .appendField(i18n.t("blocks.ini.text_ini"));
-            // .appendField(new Blockly.FieldDropdown(
-            //     MOTOR_TYPE.map(createListForFieldDropdownMapper("blocks.gnikrap_ev3_motor_settype.list_motor_type_connected_on"))), "TYPE")
-            // .appendField(new Blockly.FieldDropdown([["A", "A"], ["B", "B"], ["C", "C"], ["D", "D"]]), "PORT");
+// //--- init ---//
+//     Blockly.Blocks['ini'] = {
+//       init: function() {
+//         initBlockStackable(this, "blocks.ini", self.EV3_MOTOR_COLOUR);
+//         this.setPreviousStatement(false);
+//         this.appendDummyInput()
+//             .appendField(i18n.t("blocks.ini.text_ini"));
+//             // .appendField(new Blockly.FieldDropdown(
+//             //     MOTOR_TYPE.map(createListForFieldDropdownMapper("blocks.gnikrap_ev3_motor_settype.list_motor_type_connected_on"))), "TYPE")
+//             // .appendField(new Blockly.FieldDropdown([["A", "A"], ["B", "B"], ["C", "C"], ["D", "D"]]), "PORT");
 
-        //不要？（170929）
-        // this.getEV3PortData = function() {
-        //   return { port: this.getFieldValue('PORT'), type: this.getFieldValue('TYPE'), action: 'setMotorType' };
-        // };
-      }
-    };
-    Blockly.JavaScript['ini'] = function(block) {
-      // var type = block.getFieldValue('TYPE');
-      // var port = block.getFieldValue('PORT');
+//         //不要？（170929）
+//         // this.getEV3PortData = function() {
+//         //   return { port: this.getFieldValue('PORT'), type: this.getFieldValue('TYPE'), action: 'setMotorType' };
+//         // };
+//       }
+//     };
+//     Blockly.JavaScript['ini'] = function(block) {
+//       // var type = block.getFieldValue('TYPE');
+//       // var port = block.getFieldValue('PORT');
 
-      // return '"@setMotorType(' + port + ', ' + getCodeForList(MOTOR_TYPE, type) + ')";\n';
-      //  + '"@setMotorType(' + port +  ', ' + getCodeForList(MOTOR_TYPE, type) + ')";\n\n';
-      // return '"@setMotorType(A, getLargeMotor)"\n';
-      return 'var motor_A = ev3.getBrick().getLargeMotor("A");\n'
-        + 'var motor_D = ev3.getBrick().getLargeMotor("D");\n\n';
-            };
-//--- End init ---//
+//       // return '"@setMotorType(' + port + ', ' + getCodeForList(MOTOR_TYPE, type) + ')";\n';
+//       //  + '"@setMotorType(' + port +  ', ' + getCodeForList(MOTOR_TYPE, type) + ')";\n\n';
+//       // return '"@setMotorType(A, getLargeMotor)"\n';
+//       return 'var motor_A = ev3.getBrick().getLargeMotor("A");\n'
+//         + 'var motor_D = ev3.getBrick().getLargeMotor("D");\n\n';
+//             };
+// //--- End init ---//
 
 //--- fd ---//
     Blockly.Blocks['fd'] = {
@@ -1236,8 +1222,10 @@ function GnikrapBlocks() {
 /* 'var motor_D = ev3.getBrick().getLargeMotor("D");\n'
       + 'var motor_A = ev3.getBrick().getLargeMotor("A");\n'
       + */
-      return 'motor_A.rotate(' + value * 310 + ', true);\n'
-      + 'motor_D.rotate(' + value * 310 + ', false);\n\n'; //渡辺氏調べ
+      return 'ev3.getBrick().getLargeMotor("A").rotate(' + ( value + '*310' ) + ', true);\n'
+          + 'ev3.getBrick().getLargeMotor("D").rotate(' + ( value + '*310' ) + ', false);\n\n';
+      //  'motor_A.rotate(' + value * 310 + ', true);\n'
+      // + 'motor_D.rotate(' + value * 310 + ', false);\n\n'; //渡辺氏調べ
     };
 //--- End fd ---//
 
@@ -1274,8 +1262,9 @@ function GnikrapBlocks() {
 /* 'var motor_D = ev3.getBrick().getLargeMotor("D");\n'
       + 'var motor_A = ev3.getBrick().getLargeMotor("A");\n'
       + */
-      return 'motor_A.rotate(' + value * -46 + ', true);\n'
-      + 'motor_D.rotate(' + value * 46 + ', false);\n\n'; //渡辺氏調べ
+      return 'ev3.getBrick().getLargeMotor("A").rotate(' + ( value + '*-46' ) + ', true);\n'
+          + 'ev3.getBrick().getLargeMotor("D").rotate(' + ( value + '*46' ) + ', false);\n\n'; //渡辺氏調べ
+
     };
 //--- End rt ---//
 
