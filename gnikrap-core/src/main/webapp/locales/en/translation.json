@@ -319,29 +319,14 @@
       "text_rt": "度回す"
     },
 
-    "cubett-fd": {
-      "tooltip": "まっすぐすすめる",
-      "text_cubett-fd": "まっすぐすすめる"
-    },
-
-    "cubett-rt": {
-      "tooltip": "右に向きを変える",
-      "text_cubett-rt": "右にまわす"
-    },
-
-
-    "cubett-lt": {
-      "tooltip": "左に向きを変える",
-      "text_cubett-lt": "左にまわす"
-    },
-
 
     "categories": {
-      "cubett": "キュベット",
-      "level-1": "レベル1",
-      "level-4": "レベル4",
-      "level-2": "レベル2",
-      "level-3": "レベル3 ",
+      "level-1": "★",
+      "level-2": "★★",
+      "level-3": "★★★ ",
+      "level-4": "★★★★",
+      "functions": "★★★★★",
+
       "text": "Text",
       "lists": "Lists",
 
@@ -355,7 +340,6 @@
       "motors": "Motors",
 
       "variables": "Variables",
-      "functions": "Functions",
       
       "advanced": "Advanced"
     },
