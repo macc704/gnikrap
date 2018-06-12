@@ -301,12 +301,6 @@
   "blocks": {
     "@comment": "Translation for blockly'blocks defined for Gnikrap",
 
-
-    "ini": {
-      "tooltip": "最初のおまじない",
-      "text_ini": "カメにエサをやる"
-    },
-
     "fd": {
       "tooltip": "まっすぐ進める",
       "text_object": "カメを",
@@ -314,9 +308,15 @@
     },
 
     "rt": {
-      "tooltip": "右に向きを変える",
-      "text_object": "カメを",
+      "tooltip": "右に回す",
+      "text_object": "カメを右に",
       "text_rt": "度回す"
+    },
+    
+    "lt": {
+      "tooltip": "左に回す",
+      "text_object": "カメを左に",
+      "text_lt": "度回す"
     },
 
 

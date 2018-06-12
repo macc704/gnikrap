@@ -61,7 +61,7 @@ function GnikrapBlocks() {
     self.XSENSOR_COLOUR = 100;
     
     // Colors that match the predefined blocks colour
-    self.BLOCKLY_LOOP_COLOUR = 120;
+    self.BLOCKLY_LOOP_COLOUR = 150;
     self.BLOCKLY_LOGIC_COLOUR = 210;
     self.BLOCKLY_MATH_COLOUR = 230;
     // Advanced
@@ -356,10 +356,12 @@ function GnikrapBlocks() {
     xml.push([
           // {type: "gnikrap_ev3_motor_settype"},
           // {type: "gnikrap_ev3_motor_move"},
-                    {type: "fd",
-              xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">5</field></block></value>' },
+          {type: "fd",
+              xmlContent: '<value name="VALUE"><shadow type="math_number"><field name="NUM">5</field></shadow></value>' },
           {type: "rt",
-              xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">90</field></block></value>' },
+              xmlContent: '<value name="VALUE"><shadow type="math_number"><field name="NUM">90</field></shadow></value>' },
+          {type: "lt",
+              xmlContent: '<value name="VALUE"><shadow type="math_number"><field name="NUM">90</field></shadow></value>' }
           // {type: "gnikrap_ev3_motor_rotate",
           //   xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">180</field></block></value>' },
           // {type: "gnikrap_ev3_motor_setspeed",
@@ -378,11 +380,13 @@ function GnikrapBlocks() {
           //   xmlContent: '<value name="BOOL"><block type="gnikrap_ev3_isok"></block></value>'},
           // {type: "controls_whileUntil"},
           {type: "fd",
-              xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">5</field></block></value>' },
+              xmlContent: '<value name="VALUE"><shadow type="math_number"><field name="NUM">5</field></shadow></value>' },
           {type: "rt",
-              xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">90</field></block></value>' },
+              xmlContent: '<value name="VALUE"><shadow type="math_number"><field name="NUM">90</field></shadow></value>' },
+          {type: "lt",
+              xmlContent: '<value name="VALUE"><shadow type="math_number"><field name="NUM">90</field></shadow></value>' },
           {type: "controls_repeat_ext",
-            xmlContent: '<value name="TIMES"><block type="math_number"><field name="NUM">4</field></block></value>'},
+            xmlContent: '<value name="TIMES"><shadow type="math_number"><field name="NUM">4</field></shadow></value>'},
           // {type: "controls_flow_statements"},
           // {type: "controls_forEach"},
           // {type: "controls_for"}
@@ -393,16 +397,18 @@ function GnikrapBlocks() {
     xml.push('<category id="catMath" name="' + i18n.t("blocks.categories.level-3") + '" colour="' + self.BLOCKLY_MATH_COLOUR + '">');
     xml.push([
           {type: "fd",
-              xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">5</field></block></value>' },
+              xmlContent: '<value name="VALUE"><shadow type="math_number"><field name="NUM">5</field></shadow></value>' },
           {type: "rt",
-              xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">90</field></block></value>' },
+              xmlContent: '<value name="VALUE"><shadow type="math_number"><field name="NUM">90</field></shadow></value>' },
+          {type: "lt",
+              xmlContent: '<value name="VALUE"><shadow type="math_number"><field name="NUM">90</field></shadow></value>' },
           {type: "controls_repeat_ext",
-            xmlContent: '<value name="TIMES"><block type="math_number"><field name="NUM">4</field></block></value>'},
+            xmlContent: '<value name="TIMES"><shadow type="math_number"><field name="NUM">4</field></shadow></value>'},
           {type: "variables_set",
-            xmlContent:'<value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>'},
+            xmlContent:'<value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow></value>'},
           {type: "variables_get"},
           {type: "math_arithmetic",
-            xmlContent: '<value name="A"><block type="math_number"><field name="NUM">0</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value>'}
+            xmlContent: '<value name="A"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="B"><shadow type="math_number"><field name="NUM">0</field></shadow></value>'}
           // {type: "controls_if",
           //   xmlContent: '<mutation else="1"></mutation>' },
         ].map(self.__blockToXML).join(''));
@@ -412,20 +418,22 @@ function GnikrapBlocks() {
     xml.push('<category id="catLogic" name="' + i18n.t("blocks.categories.level-4") + '" colour="' + self.BLOCKLY_LOGIC_COLOUR + '">');
     xml.push([
           {type: "fd",
-              xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">5</field></block></value>' },
+              xmlContent: '<value name="VALUE"><shadow type="math_number"><field name="NUM">5</field></shadow></value>' },
           {type: "rt",
-              xmlContent: '<value name="VALUE"><block type="math_number"><field name="NUM">90</field></block></value>' },
+              xmlContent: '<value name="VALUE"><shadow type="math_number"><field name="NUM">90</field></shadow></value>' },
+          {type: "lt",
+              xmlContent: '<value name="VALUE"><shadow type="math_number"><field name="NUM">90</field></shadow></value>' },
           {type: "controls_repeat_ext",
-            xmlContent: '<value name="TIMES"><block type="math_number"><field name="NUM">4</field></block></value>'},
+            xmlContent: '<value name="TIMES"><shadow type="math_number"><field name="NUM">4</field></shadow></value>'},
           {type: "variables_set",
-            xmlContent:'<value name="VALUE"><block type="math_number"><field name="NUM">0</field></block></value>'},
+            xmlContent:'<value name="VALUE"><shadow type="math_number"><field name="NUM">0</field></shadow></value>'},
           {type: "variables_get"},
           {type: "math_arithmetic",
-            xmlContent: '<value name="A"><block type="math_number"><field name="NUM">0</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value>'},
+            xmlContent: '<value name="A"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="B"><shadow type="math_number"><field name="NUM">0</field></shadow></value>'},
           {type: "logic_compare",
-            xmlContent: '<value name="A"><block type="math_number"><field name="NUM">0</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value>'},
+            xmlContent: '<value name="A"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="B"><shadow type="math_number"><field name="NUM">0</field></shadow></value>'},
           {type: "controls_if",
-            xmlContent: '<value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><block type="math_number"><field name="NUM">0</field></block></value><value name="B"><block type="math_number"><field name="NUM">0</field></block></value></block></value>'}
+            xmlContent: '<value name="IF0"><block type="logic_compare"><field name="OP">EQ</field><value name="A"><shadow type="math_number"><field name="NUM">0</field></shadow></value><value name="B"><shadow type="math_number"><field name="NUM">0</field></shadow></value></block></value>'}
           // {type: "controls_if",
           //   xmlContent: '<mutation else="1"></mutation>' },
           // {type: "logic_negate"},
@@ -1158,39 +1166,10 @@ function GnikrapBlocks() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////// MyBlocks
 
-// //--- init ---//
-//     Blockly.Blocks['ini'] = {
-//       init: function() {
-//         initBlockStackable(this, "blocks.ini", self.EV3_MOTOR_COLOUR);
-//         this.setPreviousStatement(false);
-//         this.appendDummyInput()
-//             .appendField(i18n.t("blocks.ini.text_ini"));
-//             // .appendField(new Blockly.FieldDropdown(
-//             //     MOTOR_TYPE.map(createListForFieldDropdownMapper("blocks.gnikrap_ev3_motor_settype.list_motor_type_connected_on"))), "TYPE")
-//             // .appendField(new Blockly.FieldDropdown([["A", "A"], ["B", "B"], ["C", "C"], ["D", "D"]]), "PORT");
-
-//         //不要？（170929）
-//         // this.getEV3PortData = function() {
-//         //   return { port: this.getFieldValue('PORT'), type: this.getFieldValue('TYPE'), action: 'setMotorType' };
-//         // };
-//       }
-//     };
-//     Blockly.JavaScript['ini'] = function(block) {
-//       // var type = block.getFieldValue('TYPE');
-//       // var port = block.getFieldValue('PORT');
-
-//       // return '"@setMotorType(' + port + ', ' + getCodeForList(MOTOR_TYPE, type) + ')";\n';
-//       //  + '"@setMotorType(' + port +  ', ' + getCodeForList(MOTOR_TYPE, type) + ')";\n\n';
-//       // return '"@setMotorType(A, getLargeMotor)"\n';
-//       return 'var motor_A = ev3.getBrick().getLargeMotor("A");\n'
-//         + 'var motor_D = ev3.getBrick().getLargeMotor("D");\n\n';
-//             };
-// //--- End init ---//
-
 //--- fd ---//
     Blockly.Blocks['fd'] = {
       init: function() {
-        initBlockStackable(this, "blocks.fd", self.EV3_MOTOR_COLOUR);
+        initBlockStackable(this, "blocks.fd", self.BLOCKLY_LOOP_COLOUR);
         this.appendDummyInput()
             // .appendField(new Blockly.FieldDropdown(
             //     hoge_MOTOR_ACTION2.map(createListForFieldDropdownMapper("blocks.gnikrap_ev3_motor_rotate.list_motor_actions"))), "ACTION")
@@ -1205,6 +1184,7 @@ function GnikrapBlocks() {
         //     .appendField(i18n.t("mm"))
             // .appendField(new Blockly.FieldDropdown(hoge_ANGLE_UNIT.map(createListForFieldDropdownMapper("blocks.gnikrap_ev3_motor_rotate.list_angle_unit"))), "ANGLE_UNIT");
         this.setInputsInline(true);
+
 
         //Motor is not Defined...のエラーを吐くとこ。
         // this.getEV3PortData = function() {
@@ -1222,8 +1202,10 @@ function GnikrapBlocks() {
 /* 'var motor_D = ev3.getBrick().getLargeMotor("D");\n'
       + 'var motor_A = ev3.getBrick().getLargeMotor("A");\n'
       + */
-      return 'ev3.getBrick().getLargeMotor("A").rotate(' + ( value + '*310' ) + ', true);\n'
-          + 'ev3.getBrick().getLargeMotor("D").rotate(' + ( value + '*310' ) + ', false);\n\n';
+      return 'ev3.getBrick().getLargeMotor("A").setSpeedPercent(75);\n'
+          + 'ev3.getBrick().getLargeMotor("D").setSpeedPercent(75);\n'
+          + 'ev3.getBrick().getLargeMotor("A").rotate(' + ( value + '*310/5' ) + ', true);\n'
+          + 'ev3.getBrick().getLargeMotor("D").rotate(' + ( value + '*310/5' ) + ', false);\n\n';
       //  'motor_A.rotate(' + value * 310 + ', true);\n'
       // + 'motor_D.rotate(' + value * 310 + ', false);\n\n'; //渡辺氏調べ
     };
@@ -1232,7 +1214,7 @@ function GnikrapBlocks() {
 //--- rt ---//
     Blockly.Blocks['rt'] = {
       init: function() {
-        initBlockStackable(this, "blocks.rt", self.EV3_MOTOR_COLOUR);
+        initBlockStackable(this, "blocks.rt", 0);
         this.appendDummyInput()
             // .appendField(new Blockly.FieldDropdown(
             //     hoge_MOTOR_ACTION2.map(createListForFieldDropdownMapper("blocks.gnikrap_ev3_motor_rotate.list_motor_actions"))), "ACTION")
@@ -1262,11 +1244,54 @@ function GnikrapBlocks() {
 /* 'var motor_D = ev3.getBrick().getLargeMotor("D");\n'
       + 'var motor_A = ev3.getBrick().getLargeMotor("A");\n'
       + */
-      return 'ev3.getBrick().getLargeMotor("A").rotate(' + ( value + '*-46' ) + ', true);\n'
-          + 'ev3.getBrick().getLargeMotor("D").rotate(' + ( value + '*46' ) + ', false);\n\n'; //渡辺氏調べ
+      return 'ev3.getBrick().getLargeMotor("A").setSpeedPercent(100);\n'
+          + 'ev3.getBrick().getLargeMotor("D").setSpeedPercent(100);\n'
+          + 'ev3.getBrick().getLargeMotor("A").rotate(' + ( value + '*-46/5' ) + ', true);\n'
+          + 'ev3.getBrick().getLargeMotor("D").rotate(' + ( value + '*46/5' ) + ', false);\n\n'; //渡辺氏調べ
 
     };
 //--- End rt ---//
+
+//--- lt ---//
+    Blockly.Blocks['lt'] = {
+      init: function() {
+        initBlockStackable(this, "blocks.lt", 55);
+        this.appendDummyInput()
+            // .appendField(new Blockly.FieldDropdown(
+            //     hoge_MOTOR_ACTION2.map(createListForFieldDropdownMapper("blocks.gnikrap_ev3_motor_rotate.list_motor_actions"))), "ACTION")
+             // .appendField(new Blockly.FieldDropdown([["A", "A"], ["B", "B"], ["C", "C"], ["D", "D"]]), "PORT");
+             .appendField(i18n.t("blocks.lt.text_object"));
+        this.appendValueInput("VALUE")
+            .setCheck("Number");
+            // .appendField(i18n.t("blocks.gnikrap_ev3_motor_rotate.text_for"));
+        this.appendDummyInput()
+            .appendField(i18n.t("blocks.lt.text_lt"));
+            // .appendField(new Blockly.FieldDropdown(hoge_ANGLE_UNIT.map(createListForFieldDropdownMapper("blocks.gnikrap_ev3_motor_rotate.list_angle_unit"))), "ANGLE_UNIT");
+        // this.setInputsInline(true);
+
+        //Motor is not Defined...のエラーを吐くとこ。
+        // this.getEV3PortData = function() {
+        //   return { port: this.getFieldValue('PORT'), type: undefined, action: 'useMotor' };
+        // };
+      }
+    };
+    Blockly.JavaScript['lt'] = function(block) {
+      var value = Blockly.JavaScript.valueToCode(block, 'VALUE', Blockly.JavaScript.ORDER_ATOMIC)
+                  || 0; // Default value if no args
+      // var angle_unit = block.getFieldValue('ANGLE_UNIT');
+      // var action = block.getFieldValue('ACTION');
+      // var port = block.getFieldValue('PORT');
+
+/* 'var motor_D = ev3.getBrick().getLargeMotor("D");\n'
+      + 'var motor_A = ev3.getBrick().getLargeMotor("A");\n'
+      + */
+      return 'ev3.getBrick().getLargeMotor("A").setSpeedPercent(100);\n'
+          + 'ev3.getBrick().getLargeMotor("D").setSpeedPercent(100);\n'
+          + 'ev3.getBrick().getLargeMotor("A").rotate(' + ( value + '*46/5' ) + ', true);\n'
+          + 'ev3.getBrick().getLargeMotor("D").rotate(' + ( value + '*-46/5' ) + ', false);\n\n'; //渡辺氏調べ
+
+    };
+//--- End lt ---//
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
